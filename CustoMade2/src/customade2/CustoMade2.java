@@ -16,7 +16,7 @@ public class CustoMade2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.print("hola puto mundo");
+        System.out.print("Primer Commit en desarrollo");
     }
     
 }
