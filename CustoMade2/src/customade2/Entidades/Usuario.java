@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
     private Long id;
     private String nombreCompleto;
     private int ci;
-    private int telefono;
+    private String telefono;
     private String email;
     private String direccion;
 
@@ -49,11 +49,11 @@ public class Usuario implements Serializable {
         this.ci = ci;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

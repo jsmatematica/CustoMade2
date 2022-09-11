@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,9 +39,10 @@ public class Pedido implements Serializable {
 
     private String nombreCompletoCliente;
     private int ciCliente;
-    private int telefonoCliente;
+    private String telefonoCliente;
     private String emailCliente;
     private String direccionCLiente;
+    @Enumerated(EnumType.STRING)
     private EstadoPedido estado;
     private float precioTotal;
 
@@ -82,11 +85,11 @@ public class Pedido implements Serializable {
         this.ciCliente = ciCliente;
     }
 
-    public int getTelefonoCliente() {
+    public String getTelefonoCliente() {
         return telefonoCliente;
     }
 
-    public void setTelefonoCliente(int telefonoCliente) {
+    public void setTelefonoCliente(String telefonoCliente) {
         this.telefonoCliente = telefonoCliente;
     }
 
