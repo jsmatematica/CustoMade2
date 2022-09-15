@@ -6,70 +6,45 @@
 package customade2.Entidades;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
  * @author jsmat
  */
 @Entity
-public class Disenio implements Serializable {
-
-    @OneToMany(mappedBy = "disneioDelDetalle")
-    private List<DetalleDePedido> detalleDePedidos;
-
-    @OneToMany(mappedBy = "disenio")
-    private List<Imagen> imagens;
+public class DetalleDePedido implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nombre;
+    private int cantidad;
     private float precioUnitario;
-    private boolean publico;
+    @ManyToOne
+    private Disenio disneioDelDetalle;
+    @ManyToOne
+    private Pedido pedido;
 
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
     
-    @OneToMany
-    private List<Articulo> articulos;
 
-    public List<Articulo> getArticulos() {
-        return articulos;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setArticulos(List<Articulo> articulos) {
-        this.articulos = articulos;
-    }
-    
-
-    public List<Imagen> getImagens() {
-        return imagens;
-    }
-
-    public void setImagens(List<Imagen> imagens) {
-        this.imagens = imagens;
-    }
-
-    public List<DetalleDePedido> getDetalleDePedidos() {
-        return detalleDePedidos;
-    }
-
-    public void setDetalleDePedidos(List<DetalleDePedido> detalleDePedidos) {
-        this.detalleDePedidos = detalleDePedidos;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public float getPrecioUnitario() {
@@ -80,14 +55,15 @@ public class Disenio implements Serializable {
         this.precioUnitario = precioUnitario;
     }
 
-    public boolean isPublico() {
-        return publico;
+    public Disenio getDisneioDelDetalle() {
+        return disneioDelDetalle;
     }
 
-    public void setPublico(boolean publico) {
-        this.publico = publico;
+    public void setDisneioDelDetalle(Disenio disneioDelDetalle) {
+        this.disneioDelDetalle = disneioDelDetalle;
     }
     
+      
     public Long getId() {
         return id;
     }
@@ -106,10 +82,10 @@ public class Disenio implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Disenio)) {
+        if (!(object instanceof DetalleDePedido)) {
             return false;
         }
-        Disenio other = (Disenio) object;
+        DetalleDePedido other = (DetalleDePedido) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -118,7 +94,7 @@ public class Disenio implements Serializable {
 
     @Override
     public String toString() {
-        return "customade2.Entidades.Disenio[ id=" + id + " ]";
+        return "customade2.Entidades.DetalleDePedido[ id=" + id + " ]";
     }
     
 }

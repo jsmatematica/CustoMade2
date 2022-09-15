@@ -26,7 +26,8 @@ import javax.persistence.Temporal;
 public class Pedido implements Serializable {
 
     @OneToMany(mappedBy = "pedido")
-    private List<Disenio> disenios;
+    private List<DetalleDePedido> detalleDePedidos;
+
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,7 +50,8 @@ public class Pedido implements Serializable {
     public float getPrecioTotal() {
         return precioTotal;
     }
-
+    
+    
     public void setPrecioTotal(float precioTotal) {
         this.precioTotal = precioTotal;
     }
