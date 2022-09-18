@@ -43,7 +43,7 @@ public class Pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Usuario usuario;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date fecha;

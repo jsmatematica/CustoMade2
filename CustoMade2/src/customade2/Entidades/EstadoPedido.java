@@ -10,5 +10,5 @@ package customade2.Entidades;
  * @author jsmat
  */
 public enum EstadoPedido {
-    VISTO,PENDIENTEDEPAGO,PENDIENTEDEENVIO,FINALIZADO
+    NOVISTO,PENDIENTEDEPAGO,PENDIENTEDEENVIO,FINALIZADO
 }

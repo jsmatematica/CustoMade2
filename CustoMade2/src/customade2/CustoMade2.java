@@ -18,6 +18,7 @@ import customade2.Entidades.TipoArticulo;
 import customade2.Entidades.Usuario;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -111,7 +112,7 @@ Articulo a = new Articulo();
         u.setNombreCompleto("Juan Garchon");
         u.setTelefono("099000000");
         u.setEmail("juangarc@mail.com");
-        
+//        
         Imagen i = new Imagen();
         i.setAncho(10);
         i.setLargo(20);
@@ -120,11 +121,9 @@ Articulo a = new Articulo();
         i.setMarginLeft(10);
         i.setMarginTop(50);
         i.setPosicionBackFront(Posicion.FRONT);
-        
+//        
         Disenio d = new Disenio();
-        List<Articulo> la = new ArrayList<Articulo>();
-        la.add(a);
-        d.setArticulos(la);
+        d.setArticulo(a);
         List<Imagen> imagens = new ArrayList<Imagen>();
         i.setDisenio(d);
         imagens.add(i);
@@ -132,7 +131,7 @@ Articulo a = new Articulo();
         d.setNombre("Dis");
         d.setPrecioUnitario(500);
         d.setPublico(true);
-        
+//        
         DetalleDePedido dp = new DetalleDePedido();
         dp.setCantidad(1);
         dp.setPrecioUnitario(a.getPrecioUnitario());
@@ -142,8 +141,8 @@ Articulo a = new Articulo();
         detalles.add(dp);
 //        PedidosController pc = new PedidosController();
 //        pc.crearPedido(u, detalles);
-//        
-        
+////        
+////        
 //    Pedido p = new Pedido();
 //    p.setCiCliente(u.getCi());
 //    p.setDireccionCLiente(u.getDireccion());
@@ -157,14 +156,24 @@ Articulo a = new Articulo();
 //    p.setDetalleDePedidos(detalles);
 //    dp.setPedido(p);
 //    u.getPedidos().add(p);
+////
+////    Conexion.getInstance().persist(u);
 //
-//    Conexion.getInstance().persist(u);
-
 Conexion.getInstance().getControladorDePedidos().crearPedido(u, detalles);
 
         
      
-        
+//        Conexion.getInstance().persist(a);
+//        Conexion.getInstance().persist(u);
+//        Conexion.getInstance().persist(d);
+//        Conexion.getInstance().persist(p);
+//        u.getPedidos().add(p);
+//        Conexion.getInstance().merge(u);
+//        List<Disenio> d2 = Conexion.getInstance().select("FROM Disenio WHERE id = 1", Disenio.class);
+//        for (Iterator<Disenio> iterator = d2.iterator(); iterator.hasNext();) {
+//            Disenio next = iterator.next();
+//            System.out.print(next.getArticulo().getPrecioUnitario());
+//        }
         
         
         

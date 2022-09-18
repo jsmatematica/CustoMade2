@@ -20,7 +20,7 @@ public class PedidosController {
     Pedido p = new Pedido();
     p.setCiCliente(u.getCi());
     p.setDireccionCLiente(u.getDireccion());
-    p.setEstado(EstadoPedido.PENDIENTEDEENVIO);
+    p.setEstado(EstadoPedido.NOVISTO);
     p.setFecha(new Date());
     p.setNombreCompletoCliente(u.getNombreCompleto());
     p.setTelefonoCliente(u.getTelefono());
@@ -33,7 +33,7 @@ public class PedidosController {
             next.setPedido(p);
         }
     u.getPedidos().add(p);
-
+//    Conexion.getInstance().persist(p);
     Conexion.getInstance().persist(u);
     }
 }

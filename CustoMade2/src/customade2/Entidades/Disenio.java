@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -23,8 +24,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class Disenio implements Serializable {
 
-    @OneToMany(mappedBy = "disneioDelDetalle", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    private List<DetalleDePedido> detalleDePedidos;
 
     @OneToMany(mappedBy = "disenio", cascade = {CascadeType.MERGE, CascadeType.PERSIST},fetch=FetchType.EAGER)
     private List<Imagen> imagens;
@@ -38,15 +37,15 @@ public class Disenio implements Serializable {
     private boolean publico;
 
     
-    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST},fetch=FetchType.EAGER)
-    private List<Articulo> articulos;
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Articulo articulo;
 
-    public List<Articulo> getArticulos() {
-        return articulos;
+    public Articulo getArticulo() {
+        return articulo;
     }
 
-    public void setArticulos(List<Articulo> articulos) {
-        this.articulos = articulos;
+    public void setArticulo(Articulo articulo) {
+        this.articulo = articulo;
     }
     
 
@@ -56,14 +55,6 @@ public class Disenio implements Serializable {
 
     public void setImagens(List<Imagen> imagens) {
         this.imagens = imagens;
-    }
-
-    public List<DetalleDePedido> getDetalleDePedidos() {
-        return detalleDePedidos;
-    }
-
-    public void setDetalleDePedidos(List<DetalleDePedido> detalleDePedidos) {
-        this.detalleDePedidos = detalleDePedidos;
     }
 
     public String getNombre() {

@@ -27,9 +27,10 @@ public class DetalleDePedido implements Serializable {
     private Long id;
     private int cantidad;
     private float precioUnitario;
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST},fetch=FetchType.EAGER)
+
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Disenio disneioDelDetalle;
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Pedido pedido;
 
     public Pedido getPedido() {
