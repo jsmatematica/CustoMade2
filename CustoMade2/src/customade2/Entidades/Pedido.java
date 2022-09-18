@@ -8,6 +8,7 @@ package customade2.Entidades;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -25,7 +26,7 @@ import javax.persistence.Temporal;
 @Entity
 public class Pedido implements Serializable {
 
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<DetalleDePedido> detalleDePedidos;
 
 
@@ -33,7 +34,7 @@ public class Pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private Usuario usuario;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date fecha;

@@ -6,6 +6,7 @@
 package customade2.Entidades;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -32,7 +33,7 @@ public class Imagen implements Serializable {
     private int ancho;
     private int largo;
     private byte[] imagenProporcionada;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private Disenio disenio;
 
     public Posicion getPosicionBackFront() {

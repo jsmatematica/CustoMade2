@@ -6,6 +6,7 @@
 package customade2.Entidades;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,9 +26,9 @@ public class DetalleDePedido implements Serializable {
     private Long id;
     private int cantidad;
     private float precioUnitario;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private Disenio disneioDelDetalle;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private Pedido pedido;
 
     public Pedido getPedido() {
