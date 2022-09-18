@@ -12,6 +12,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,8 +27,16 @@ import javax.persistence.Temporal;
 @Entity
 public class Pedido implements Serializable {
 
-    @OneToMany(mappedBy = "pedido", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @OneToMany(mappedBy = "pedido", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
     private List<DetalleDePedido> detalleDePedidos;
+
+    public List<DetalleDePedido> getDetalleDePedidos() {
+        return detalleDePedidos;
+    }
+
+    public void setDetalleDePedidos(List<DetalleDePedido> detalleDePedidos) {
+        this.detalleDePedidos = detalleDePedidos;
+    }
 
 
     private static final long serialVersionUID = 1L;

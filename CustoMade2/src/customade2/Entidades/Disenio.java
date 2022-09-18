@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class Disenio implements Serializable {
     @OneToMany(mappedBy = "disneioDelDetalle", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<DetalleDePedido> detalleDePedidos;
 
-    @OneToMany(mappedBy = "disenio", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @OneToMany(mappedBy = "disenio", cascade = {CascadeType.MERGE, CascadeType.PERSIST},fetch=FetchType.EAGER)
     private List<Imagen> imagens;
 
     private static final long serialVersionUID = 1L;
@@ -37,7 +38,7 @@ public class Disenio implements Serializable {
     private boolean publico;
 
     
-    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST},fetch=FetchType.EAGER)
     private List<Articulo> articulos;
 
     public List<Articulo> getArticulos() {

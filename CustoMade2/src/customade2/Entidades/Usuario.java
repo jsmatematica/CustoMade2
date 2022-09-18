@@ -6,9 +6,11 @@
 package customade2.Entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,9 +22,21 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class Usuario implements Serializable {
+    
+    public Usuario(){
+        this.pedidos = new ArrayList<Pedido>();
+    }
 
-    @OneToMany(mappedBy = "usuario", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @OneToMany(mappedBy = "usuario", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch=FetchType.EAGER)
     private List<Pedido> pedidos;
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
 
     private static final long serialVersionUID = 1L;
     @Id

@@ -5,6 +5,7 @@
  */
 package BD;
 
+import Controladores.PedidosController;
 import customade2.Entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +30,14 @@ public class Conexion {
     private static class ConexionHolder { //variables para instanciar una unica vez
 
         private static final Conexion INSTANCE = new Conexion();
-        private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("JavaPU");
+        private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("CustoMade2PU");
         private static final EntityManager em = emf.createEntityManager();
+        private static final PedidosController controladorDePedidos = new PedidosController();
+    }
+    
+    
+    public PedidosController getControladorDePedidos(){
+        return ConexionHolder.controladorDePedidos;
     }
     
      public EntityManager getEntity(){
