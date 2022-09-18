@@ -8,6 +8,7 @@ package Controladores;
 
 import customade2.Entidades.*;
 import BD.Conexion;
+import DTO.DatosCliente;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -35,5 +36,24 @@ public class PedidosController {
     u.getPedidos().add(p);
 //    Conexion.getInstance().persist(p);
     Conexion.getInstance().persist(u);
+    }
+    
+    
+    public void crearPedidoNoRegistrado(DatosCliente u,List<DetalleDePedido> detalles){
+    
+    Pedido p = new Pedido();
+    p.setCiCliente(u.getCi());
+    p.setDireccionCLiente(u.getDireccion());
+    p.setEstado(EstadoPedido.NOVISTO);
+    p.setFecha(new Date());
+    p.setNombreCompletoCliente(u.getNombreCompleto());
+    p.setTelefonoCliente(u.getTelefono());
+    p.setEmailCliente(u.getEmail());
+     p.setDetalleDePedidos(detalles);
+        for (Iterator<DetalleDePedido> iterator = detalles.iterator(); iterator.hasNext();) {
+            DetalleDePedido next = iterator.next();
+            next.setPedido(p);
+        }
+    Conexion.getInstance().persist(p);
     }
 }

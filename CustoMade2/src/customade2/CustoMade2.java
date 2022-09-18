@@ -7,6 +7,7 @@ package customade2;
 
 import BD.Conexion;
 import Controladores.*;
+import DTO.DatosCliente;
 import customade2.Entidades.Articulo;
 import customade2.Entidades.DetalleDePedido;
 import customade2.Entidades.Disenio;
@@ -106,7 +107,7 @@ Articulo a = new Articulo();
         a.setStock(1500);
         a.setTalle("XXL");
         a.setTipo(TipoArticulo.TAZA);
- Usuario u = new Usuario();
+ DatosCliente u = new DatosCliente();
         u.setCi(42296435);
         u.setDireccion("Enrrique Segoviano");
         u.setNombreCompleto("Juan Garchon");
@@ -159,7 +160,7 @@ Articulo a = new Articulo();
 ////
 ////    Conexion.getInstance().persist(u);
 //
-Conexion.getInstance().getControladorDePedidos().crearPedido(u, detalles);
+    Conexion.getInstance().getControladorDePedidos().crearPedidoNoRegistrado(u, detalles);
 
         
      
