@@ -177,14 +177,19 @@ public class CustoMade2 {
 //        }
         
 //        List<Pedido> pedidos = Conexion.getInstance().getControladorDePedidos().listarPedidos();
-        List<Pedido> pedidos = Conexion.getInstance().getControladorDePedidos().listarPedidosDeUsuario("juangarc@mail.com");
-        for (Iterator<Pedido> iterator = pedidos.iterator(); iterator.hasNext();) {
-            Pedido next = iterator.next();
+//        List<Pedido> pedidos = Conexion.getInstance().getControladorDePedidos().listarPedidosDeUsuario("juangarc@mail.com");
+//        List<Pedido> pedidos = Conexion.getInstance().getControladorDePedidos().listarPedidosPorEstado(EstadoPedido.NOVISTO);
+//        for (Iterator<Pedido> iterator = pedidos.iterator(); iterator.hasNext();) {
+//            Pedido next = iterator.next();
+//            System.out.println(next.getCiCliente()+" CI CLIENTE");
+//            System.out.println(next.getDireccionCLiente()+" DIRECCION DEL CLIENTE");
+//            System.out.println(next.getEmailCliente()+" EMAIL DEL CLIENTE");
+//        }
+//        
+            Pedido next = Conexion.getInstance().getControladorDePedidos().getPedido(1);
             System.out.println(next.getCiCliente()+" CI CLIENTE");
             System.out.println(next.getDireccionCLiente()+" DIRECCION DEL CLIENTE");
             System.out.println(next.getEmailCliente()+" EMAIL DEL CLIENTE");
-        }
-//        
         
         
     

@@ -66,4 +66,14 @@ public class PedidosController {
         Usuario u = us.get(0);
         return u.getPedidos();
     }
+    
+    
+    public List<Pedido> listarPedidosPorEstado(EstadoPedido estadoDelPedido){
+        return Conexion.getInstance().select("FROM Pedido WHERE estado = '"+estadoDelPedido+"'", Pedido.class);
+    }
+    
+    public Pedido getPedido(long idPedido){
+        List<Pedido> pedidos = Conexion.getInstance().select("FROM Pedido WHERE id ="+idPedido, Pedido.class);
+        return pedidos.get(0);
+    }
 }
