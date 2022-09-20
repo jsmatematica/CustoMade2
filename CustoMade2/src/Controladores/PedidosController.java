@@ -56,4 +56,14 @@ public class PedidosController {
         }
     Conexion.getInstance().persist(p);
     }
+    
+    public List<Pedido> listarPedidos(){
+        return Conexion.getInstance().select("FROM Pedido", Pedido.class);
+    }
+    
+    public List<Pedido> listarPedidosDeUsuario(String nombreDeUsuario){
+        List<Usuario> us = Conexion.getInstance().select("FROM Usuario WHERE email = '"+nombreDeUsuario+"'", Usuario.class);
+        Usuario u = us.get(0);
+        return u.getPedidos();
+    }
 }
