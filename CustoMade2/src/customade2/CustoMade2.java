@@ -186,12 +186,27 @@ public class CustoMade2 {
 //            System.out.println(next.getEmailCliente()+" EMAIL DEL CLIENTE");
 //        }
 //        
-            Pedido next = Conexion.getInstance().getControladorDePedidos().getPedido(1);
-            System.out.println(next.getCiCliente()+" CI CLIENTE");
-            System.out.println(next.getDireccionCLiente()+" DIRECCION DEL CLIENTE");
-            System.out.println(next.getEmailCliente()+" EMAIL DEL CLIENTE");
-        
-        
+//            Pedido next = Conexion.getInstance().getControladorDePedidos().getPedido(1);
+//            System.out.println(next.getCiCliente()+" CI CLIENTE");
+//            System.out.println(next.getDireccionCLiente()+" DIRECCION DEL CLIENTE");
+//            System.out.println(next.getEmailCliente()+" EMAIL DEL CLIENTE");
+
+
+//               byte[] imagenFront = {1,2,3,4};
+//               byte[] imagenBack = {1,2,3,4};
+//               Conexion.getInstance().getCOntroladorDeDisenios().guardarDisenio("primerDisenio", 1,10 ,10, 10, 10, imagenFront, 10, 10, 10, 10, imagenBack, true);
+
+                List<Disenio> disenios = Conexion.getInstance().getCOntroladorDeDisenios().listarDisenios();
+                
+                for (Iterator<Disenio> iterator = disenios.iterator(); iterator.hasNext();) {
+            Disenio next = iterator.next();
+            List<Imagen> imagenes = next.getImagens();
+                    for (Iterator<Imagen> iterator1 = imagenes.iterator(); iterator1.hasNext();) {
+                        Imagen next1 = iterator1.next();
+                        System.out.println(next1.getImagenProporcionada());
+                    }
+        }
+//            System.out.print(Conexion.getInstance().getCOntroladorDeDisenios().getDisenio(2).getImagens().get(0).getMarginLeft());
     
 
     }
