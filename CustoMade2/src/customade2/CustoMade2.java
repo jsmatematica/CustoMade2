@@ -196,17 +196,31 @@ public class CustoMade2 {
 //               byte[] imagenBack = {1,2,3,4};
 //               Conexion.getInstance().getCOntroladorDeDisenios().guardarDisenio("primerDisenio", 1,10 ,10, 10, 10, imagenFront, 10, 10, 10, 10, imagenBack, true);
 
-                List<Disenio> disenios = Conexion.getInstance().getCOntroladorDeDisenios().listarDisenios();
-                
-                for (Iterator<Disenio> iterator = disenios.iterator(); iterator.hasNext();) {
-            Disenio next = iterator.next();
-            List<Imagen> imagenes = next.getImagens();
-                    for (Iterator<Imagen> iterator1 = imagenes.iterator(); iterator1.hasNext();) {
-                        Imagen next1 = iterator1.next();
-                        System.out.println(next1.getImagenProporcionada());
-                    }
-        }
+//                List<Disenio> disenios = Conexion.getInstance().getCOntroladorDeDisenios().listarDisenios();
+//                
+//                for (Iterator<Disenio> iterator = disenios.iterator(); iterator.hasNext();) {
+//            Disenio next = iterator.next();
+//            List<Imagen> imagenes = next.getImagens();
+//                    for (Iterator<Imagen> iterator1 = imagenes.iterator(); iterator1.hasNext();) {
+//                        Imagen next1 = iterator1.next();
+//                        System.out.println(next1.getImagenProporcionada());
+//                    }
+//        }
 //            System.out.print(Conexion.getInstance().getCOntroladorDeDisenios().getDisenio(2).getImagens().get(0).getMarginLeft());
+
+//        byte[] imagen = {1,2,3,4};
+//        
+//        Conexion.getInstance().getControladorDeArticulos().crearArtículo("NEGRO", imagen, 10000, 1000000, TipoArticulo.CAMISETAHOMBRE, "XS");
+
+//Conexion.getInstance().getControladorDeArticulos().modificarStock(2, 5000);
+
+//    System.out.print(Conexion.getInstance().getControladorDeArticulos().getArticulo(3).getTalle());
+
+List<Articulo> arts = Conexion.getInstance().getControladorDeArticulos().listarArticulos();
+        for (Iterator<Articulo> iterator = arts.iterator(); iterator.hasNext();) {
+            Articulo next = iterator.next();
+            System.out.println(next.getPrecioUnitario());
+        }
     
 
     }
