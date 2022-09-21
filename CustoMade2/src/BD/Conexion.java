@@ -8,6 +8,7 @@ package BD;
 import Controladores.ArticulosController;
 import Controladores.DiseniosController;
 import Controladores.PedidosController;
+import Controladores.UsuariosController;
 import customade2.Entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,11 @@ public class Conexion {
         private static final PedidosController controladorDePedidos = new PedidosController();
         private static final DiseniosController controladorDeDisenios = new DiseniosController();
         private static final ArticulosController controladorDeArticulos = new ArticulosController();
+        private static final UsuariosController controladorDeUsuarios = new UsuariosController();
+    }
+    
+    public UsuariosController getControladorDeUsuarios(){
+    return ConexionHolder.controladorDeUsuarios;
     }
     
     public ArticulosController getControladorDeArticulos(){
