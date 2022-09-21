@@ -33,7 +33,8 @@ public class UsuariosController {
         return Conexion.getInstance().select("FROM Usuario", Usuario.class);
     }
     
-    public void verificarNombreDeUsuarioDisponible() {
-        
+    public boolean verificarNombreDeUsuarioDisponible(String nombreUsuario) {
+        List<Usuario> usu = Conexion.getInstance().select("FROM Usuario WHERE email ='"+nombreUsuario+"'", Usuario.class);
+        return usu.isEmpty();
     }
 }
