@@ -216,11 +216,13 @@ public class CustoMade2 {
 
 //    System.out.print(Conexion.getInstance().getControladorDeArticulos().getArticulo(3).getTalle());
 
-List<Articulo> arts = Conexion.getInstance().getControladorDeArticulos().listarArticulos();
-        for (Iterator<Articulo> iterator = arts.iterator(); iterator.hasNext();) {
-            Articulo next = iterator.next();
-            System.out.println(next.getPrecioUnitario());
-        }
+//List<Articulo> arts = Conexion.getInstance().getControladorDeArticulos().listarArticulos();
+//        for (Iterator<Articulo> iterator = arts.iterator(); iterator.hasNext();) {
+//            Articulo next = iterator.next();
+//            System.out.println(next.getPrecioUnitario());
+//        }
+
+System.out.println(Conexion.getInstance().getControladorDeUsuarios().verificarNombreDeUsuarioDisponible("juangarch@mail.com"));
     
 
     }
