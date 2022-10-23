@@ -36,6 +36,10 @@ public class PedidosController {
     u.getPedidos().add(p);
 //    Conexion.getInstance().persist(p);
     Conexion.getInstance().persist(u);
+            for (Iterator<DetalleDePedido> iterator = detallesDelPedido.iterator(); iterator.hasNext();) {
+            DetalleDePedido next = iterator.next();
+            Conexion.getInstance().persist(next);
+        }
     }
     
     
@@ -50,11 +54,21 @@ public class PedidosController {
     p.setTelefonoCliente(u.getTelefono());
     p.setEmailCliente(u.getEmail());
      p.setDetalleDePedidos(detalles);
+     float precioTotal=0;
+     
+     int i=0;
+     while(i<detalles.size()){
+         precioTotal = precioTotal+detalles.get(i).getDisneioDelDetalle().getPrecioUnitario() * detalles.get(i).getCantidad();
+     i++;
+     }
+     p.setPrecioTotal(precioTotal);
+     
+    Conexion.getInstance().persist(p);
         for (Iterator<DetalleDePedido> iterator = detalles.iterator(); iterator.hasNext();) {
             DetalleDePedido next = iterator.next();
             next.setPedido(p);
+            Conexion.getInstance().merge(next);
         }
-    Conexion.getInstance().persist(p);
     }
     
     public List<Pedido> listarPedidos(){
