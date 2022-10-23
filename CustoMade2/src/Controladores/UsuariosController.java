@@ -14,13 +14,14 @@ import java.util.List;
  * @author Administrador
  */
 public class UsuariosController {
-    public void crearUsuario(String nombreCompleto, int ci, String telefono, String email, String direccion){
+    public void crearUsuario(String nombreCompleto, int ci, String telefono, String email, String direccion, String password){
     Usuario u = new Usuario();
     u.setNombreCompleto(nombreCompleto);
     u.setCi(ci);
     u.setTelefono(telefono);
     u.setEmail(email);
     u.setDireccion(direccion);
+    u.setPassword(password);
     Conexion.getInstance().persist(u);    
     }
     
